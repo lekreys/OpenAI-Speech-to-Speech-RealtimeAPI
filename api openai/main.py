@@ -79,9 +79,9 @@ manager = ConnectionManager()
 class OpenAIRealtimeClient:
     
     def __init__(self, instructions: str, client_id: str, voice: str = "alloy"):
-        self.url = "wss://api.openai.com/v1/realtime"
+        self.url = "wss://gpt4o-realtime.openai.azure.com/openai/realtime?api-version=2024-10-01-preview&deployment=gpt-4o-realtime-preview"
         self.model = "gpt-4o-realtime-preview-2024-10-01"
-        self.api_key = os.getenv("OPENAI_API_KEY")
+        self.api_key = os.getenv("model_key")
         self.ws: Optional[websockets.WebSocketClientProtocol] = None
         self.instructions = instructions
         self.voice = voice
